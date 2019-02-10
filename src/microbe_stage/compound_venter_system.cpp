@@ -32,7 +32,6 @@ void
 
     timeSinceLastCycle++;
     while(timeSinceLastCycle > TIME_SCALING_FACTOR) {
-        LOG_INFO("Processing Auto-evo Step");
         timeSinceLastCycle -= TIME_SCALING_FACTOR;
         for(auto& value : CachedComponents.GetIndex()) {
             CompoundBagComponent& bag = std::get<0>(*value.second);
