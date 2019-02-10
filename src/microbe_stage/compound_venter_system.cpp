@@ -28,15 +28,20 @@ void
     if(!world.GetNetworkSettings().IsAuthoritative)
         return;
 
-    for(auto& value : CachedComponents.GetIndex()) {
+    const auto logicTime = Leviathan::TICKSPEED;
 
-        CompoundBagComponent& bag = std::get<0>(*value.second);
-        CompoundVenterComponent& venter = std::get<1>(*value.second);
-        Leviathan::Position& position = std::get<2>(*value.second);
-
-        venter.ventCompound(position,
-            SimulationParameters::compoundRegistry.getTypeId("iron"), 15,
-            world);
+    timeSinceLastCycle++;
+    while(timeSinceLastCycle > TIME_SCALING_FACTOR) {
+        LOG_INFO("Processing Auto-evo Step");
+        timeSinceLastCycle -= TIME_SCALING_FACTOR;
+        for(auto& value : CachedComponents.GetIndex()) {
+            CompoundBagComponent& bag = std::get<0>(*value.second);
+            CompoundVenterComponent& venter = std::get<1>(*value.second);
+            Leviathan::Position& position = std::get<2>(*value.second);
+            venter.ventCompound(position,
+                SimulationParameters::compoundRegistry.getTypeId("iron"), 5,
+                world);
+        }
     }
 }
 
