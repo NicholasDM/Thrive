@@ -20,8 +20,6 @@ class CompoundVenterComponent : public Leviathan::Component {
 public:
     CompoundVenterComponent();
 
-    double storageSpace;
-    double storageSpaceOccupied;
     float x, y;
 
     REFERENCE_HANDLE_UNCOUNTED_TYPE(CompoundVenterComponent);

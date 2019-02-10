@@ -16,6 +16,12 @@
 
 using namespace thrive;
 
+
+// ------------------------------------ //
+// CompoundBagComponent
+CompoundVenterComponent::CompoundVenterComponent() : Leviathan::Component(TYPE)
+{}
+
 void
     CompoundVenterSystem::Run(CellStageWorld& world)
 {
