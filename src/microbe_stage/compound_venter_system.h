@@ -78,7 +78,7 @@ public:
 
 protected:
 private:
-    static constexpr double TIME_SCALING_FACTOR = 60;
+    static constexpr double TIME_SCALING_FACTOR = 20;
     int timeSinceLastCycle = 0;
 };
 } // namespace thrive
