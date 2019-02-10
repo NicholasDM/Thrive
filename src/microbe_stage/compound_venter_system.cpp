@@ -18,7 +18,7 @@ using namespace thrive;
 
 
 // ------------------------------------ //
-// CompoundBagComponent
+// CompoundVenterComponent
 CompoundVenterComponent::CompoundVenterComponent() : Leviathan::Component(TYPE)
 {}
 
@@ -35,15 +35,17 @@ void
         Leviathan::Position& position = std::get<2>(*value.second);
 
         venter.ventCompound(position,
-            SimulationParameters::compoundRegistry.getTypeId("iron"), world);
+            SimulationParameters::compoundRegistry.getTypeId("iron"), 15,
+            world);
     }
 }
 
 void
     CompoundVenterComponent::ventCompound(Leviathan::Position& pos,
         CompoundId compound,
+        double amount,
         CellStageWorld& world)
 {
     world.GetCompoundCloudSystem().addCloud(
-        compound, 15000, pos.Members._Position);
+        compound, amount * 1000, pos.Members._Position);
 }

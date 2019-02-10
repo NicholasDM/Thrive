@@ -30,6 +30,7 @@ public:
     void
         ventCompound(Leviathan::Position& pos,
             CompoundId ourCompound,
+            double amount,
             CellStageWorld& world);
 };
 
